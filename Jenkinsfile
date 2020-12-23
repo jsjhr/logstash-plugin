@@ -6,7 +6,7 @@ pipeline {
     }
     
     parameters {
-        string(name: 'GIT_PROJECT', defaultValue: 'http://192.168.0.13/x750618/jsf2-hello-world.git', description: 'GIT PROJECT')
+        string(name: 'GIT_PROJECT', defaultValue: 'https://github.com/jsjhr/logstash-plugin.git', description: 'GIT PROJECT')
         string(name: 'DOCKER_COMPILER_IMAGE', defaultValue: 'openjdk:8-jdk-alpine-jav-maven', description: 'docker image for build')
     }
     
