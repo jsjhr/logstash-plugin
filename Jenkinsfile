@@ -8,6 +8,7 @@ pipeline {
     parameters {
         string(name: 'GIT_PROJECT', defaultValue: 'https://github.com/jsjhr/logstash-plugin.git', description: 'GIT PROJECT')
         string(name: 'DOCKER_COMPILER_IMAGE', defaultValue: 'openjdk:8-jdk-alpine-jav-maven', description: 'docker image for build')
+        string(name: 'MAVEN_TARGETS', defaultValue: 'clean package -DskipTests', description: 'maven targets')
     }
     
     stages
@@ -20,7 +21,7 @@ pipeline {
     
         stage('build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn ${MAVEN_TARGETS}'
             }
         }
         
