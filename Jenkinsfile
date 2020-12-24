@@ -85,9 +85,8 @@ pipeline {
         }
 
         stage('testcommand') { 
-            agent any
-	    steps { 
-                sh 'hostname'
+            steps { 
+                archiveArtifacts artifacts: 'target/*.hpi'
 	    }
         }
 
