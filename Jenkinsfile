@@ -91,10 +91,7 @@ pipeline {
         }
 	    
 	stage('onlocalhost') {
-	    agent {
-		    label 'master'
-		}
-            steps { 
+	    steps { 
                 sh 'uname -a'	    
 	    }
         }
