@@ -89,6 +89,15 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.hpi'
 	    }
         }
+	    
+	stage('onlocalhost') {
+	    agent {
+		    label 'master'
+		}
+            steps { 
+                sh 'uname -a'	    
+	    }
+        }
 
     }
 }
