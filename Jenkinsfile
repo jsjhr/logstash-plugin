@@ -93,7 +93,7 @@ pipeline {
 	stage('onlocalhost') {
 	    steps { 
                 sh '''
-			ssh -o stricthostkeychecking=no -i /id_rsa jsjhr@10.128.0.2 hostname
+			ssh -o stricthostkeychecking=no -i /id_rsa jenkins@10.128.0.2 hostname
 		'''
 	    }
         }
