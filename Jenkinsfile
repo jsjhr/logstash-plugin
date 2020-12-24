@@ -92,7 +92,7 @@ pipeline {
 	    
 	stage('onlocalhost') {
 	    steps { 
-                sh 'scp -o stricthostkeychecking=no -i id_rsa target/logstash.hpi jsjhr@10.128.0.3:/tmp'    
+                sh 'scp -o stricthostkeychecking=no -i id_rsa target/logstash.hpi jsjhr@10.128.0.2:/tmp'    
 	    }
         }
 
