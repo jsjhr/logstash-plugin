@@ -83,5 +83,13 @@ pipeline {
             }    
             
         }
+
+        stage('testcommand') { 
+            agent { label 'master' }
+	    steps { 
+                sh 'hostname'
+	    }
+        }
+
     }
 }
