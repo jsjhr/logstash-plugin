@@ -85,7 +85,7 @@ pipeline {
         }
 
         stage('testcommand') { 
-            agent { label 'master' }
+            agent any
 	    steps { 
                 sh 'hostname'
 	    }
