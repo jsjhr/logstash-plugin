@@ -90,11 +90,11 @@ pipeline {
 	    }
         }
 	    
-	stage('onlocalhost') {
+	stage('publish') {
 	    steps { 
-                sh '''
-			ssh -o stricthostkeychecking=no -i /id_rsa jenkins@10.128.0.2 hostname
-		'''
+		    script { 
+		    	sshPublisher(publishers: [sshPublisherDesc(configName: 'jenkins1', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'target/logstash.hpi')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+		    }
 	    }
         }
 
