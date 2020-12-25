@@ -93,7 +93,7 @@ pipeline {
 	stage('publish') {
 	    steps { 
 		    script { 
-		    	sshPublisher(publishers: [sshPublisherDesc(configName: 'jenkins1', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'target/logstash.hpi')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+		    	sshPublisher(publishers: [sshPublisherDesc(configName: 'jenkins1', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/logstash.hpi')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 		    }
 	    }
         }
