@@ -97,6 +97,11 @@ pipeline {
 		    }
 	    }
         }
+	state ('restart Jenkins Testing') {
+		script {
+			sshPublisher(publishers: [sshPublisherDesc(configName: 'jenkins1', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker restart jenkins-testing', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+		}
+	}    
 
     }
 }
