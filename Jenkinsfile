@@ -29,6 +29,8 @@ pipeline {
             steps {
 		sh 'echo "JAV"'
 		sh 'git branch -v'
+		sh 'git checkout rabbitmqhttp'
+		sh 'git branch -v'			    
                 sh 'mvn ${MAVEN_TARGETS}'
             }
         }
