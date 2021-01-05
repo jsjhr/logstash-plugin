@@ -29,8 +29,11 @@ public class RabbitMqDaoTest {
   @Mock Channel mockChannel;
 
   RabbitMqDao createDao(String host, int port, String key, String username, String password, String vhost) {
+	  System.out.println("Punto 1");
     RabbitMqDao factory = new RabbitMqDao(mockPool, host, port, key, username, password, StandardCharsets.UTF_8, vhost);
+	  System.out.println("Punto 2");
     verify(mockPool, atLeastOnce()).setHost(host);
+	  System.out.println("Punto 3");
     verify(mockPool, atLeastOnce()).setPort(port);
     verify(mockPool, atLeastOnce()).setVirtualHost(vhost);
 
@@ -232,5 +235,16 @@ public class RabbitMqDaoTest {
     verify(mockChannel).basicPublish("", "logstash", null, json.getBytes());
     verify(mockChannel, times(2)).isOpen();
     verify(mockChannel, times(2)).close();
+  }
+  public static void main(String args[]) { 
+	  System.out.println("Test DAO RabbitMQ");
+	  RabbitMqDaoTest rabbitmqdaotest = new RabbitMqDaoTest();
+	  //rabbitmqdaotest.createDao("192.168.0.13", 5672, "logstash", "guest", "guest", "/");
+	  try {
+		rabbitmqdaotest.pushSuccess();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
   }
 }

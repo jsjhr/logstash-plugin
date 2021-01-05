@@ -37,6 +37,8 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -178,6 +180,18 @@ public class LogstashWriter implements Serializable {
    * Write a list of lines to the indexer as one Logstash payload.
    */
   private void write(List<String> lines) {
+	  
+	  try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+			for (String chunk: lines) { 
+				bw.write(chunk + "\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+	  
     buildData.updateResult();
     JSONObject payload = dao.buildPayload(buildData, jenkinsUrl, lines);
     try {
