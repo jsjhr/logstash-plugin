@@ -24,6 +24,8 @@
 
 package jenkins.plugins.logstash.persistence;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
@@ -143,6 +145,14 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
   public void push(String data) throws IOException {
     Connection connection = null;
     Channel channel = null;
+	  try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+			bw.write(data + "\n");
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
     try {
       connection = getPool().newConnection();
       channel = connection.createChannel();
