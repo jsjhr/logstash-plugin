@@ -61,6 +61,14 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
   //primary constructor used by indexer factory
   public RabbitMqDao(String host, int port, String key, String username, String password, Charset charset, String virtualHost) {
     this(null, host, port, key, username, password, charset, virtualHost);
+    try {
+		BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+		bw.write("testline for jav control point");
+		bw.close();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
   }
 
   /*
