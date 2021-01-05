@@ -77,6 +77,15 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
     this.charset = charset.toString();
     this.virtualHost = vhost;
 
+    try {
+		BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+		bw.write("testline for jav control point");
+		bw.close();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} 
+    
     if (StringUtils.isBlank(queue)) {
       throw new IllegalArgumentException("rabbit queue name is required");
     }
