@@ -27,6 +27,8 @@ pipeline {
     
         stage('build') {
             steps {
+		sh 'echo "JAV"'
+		sh 'git branch -v'
                 sh 'mvn ${MAVEN_TARGETS}'
             }
         }
