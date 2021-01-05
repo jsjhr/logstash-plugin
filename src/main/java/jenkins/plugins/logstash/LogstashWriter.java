@@ -192,7 +192,7 @@ public class LogstashWriter implements Serializable {
 //			e.printStackTrace();
 //		}  
 	  for (String chunk: lines) { 
-			logErrorMessage(chunk);
+			logErrorMessage("jav: " + chunk);
 		}
 	  
     buildData.updateResult();
