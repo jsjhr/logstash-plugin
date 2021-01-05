@@ -163,7 +163,7 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
     Connection connection = null;
     Channel channel = null;
 	  try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output.txt"));
 			bw.write(data + "\n");
 			bw.close();
 		} catch (IOException e) {
