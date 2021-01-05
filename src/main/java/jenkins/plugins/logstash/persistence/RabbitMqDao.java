@@ -62,7 +62,7 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
   public RabbitMqDao(String host, int port, String key, String username, String password, Charset charset, String virtualHost) {
     this(null, host, port, key, username, password, charset, virtualHost);
     try {
-		BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output3.txt"));
 		bw.write("testline for jav control point");
 		bw.close();
 	} catch (IOException e) {
@@ -86,7 +86,7 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
     this.virtualHost = vhost;
 
     try {
-		BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output2.txt"));
 		bw.write("testline for jav control point");
 		bw.close();
 	} catch (IOException e) {
@@ -163,7 +163,7 @@ public class RabbitMqDao extends HostBasedLogstashIndexerDao {
     Connection connection = null;
     Channel channel = null;
 	  try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output1.txt"));
 			bw.write(data + "\n");
 			bw.close();
 		} catch (IOException e) {

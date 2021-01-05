@@ -180,21 +180,21 @@ public class LogstashWriter implements Serializable {
    * Write a list of lines to the indexer as one Logstash payload.
    */
   private void write(List<String> lines) {
-	  
-	  try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output.txt"));
-			for (String chunk: lines) { 
-				bw.write(chunk + "\n");
-			}
-			bw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-	  for (String chunk: lines) { 
-			logErrorMessage("z055484: " + chunk);
-		}
-	  
+//	  
+//	  try {
+//			BufferedWriter bw = new BufferedWriter(new FileWriter("/var/jenkins_home/output.txt"));
+//			for (String chunk: lines) { 
+//				bw.write(chunk + "\n");
+//			}
+//			bw.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}  
+//	  for (String chunk: lines) { 
+//			logErrorMessage("z055484: " + chunk);
+//		}
+//	  
     buildData.updateResult();
     JSONObject payload = dao.buildPayload(buildData, jenkinsUrl, lines);
     try {
